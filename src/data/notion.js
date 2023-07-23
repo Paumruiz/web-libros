@@ -1,10 +1,13 @@
+import dotenv from "dotenv";
 import { Client } from "@notionhq/client";
+
+dotenv.config();
 
 const DATABASE_ID = "76d555bf29494609abf50af06a990100";
 
 const notion = new Client({
 	/*auth: import.meta.env.NOTION_TOKEN*/
-	auth: "secret_dGmX3vXaSAUZX9B5p0zWRyRTevLN7C8P3NgvSYW8S6O",
+	auth: process.env.NOTION_TOKEN,
 });
 
 export const getBooks = async ({ filterBy } = {}) => {
